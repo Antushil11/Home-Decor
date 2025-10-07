@@ -12,9 +12,9 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <NavLink to="/">Home</NavLink>
-                        <NavLink to="/products">Products</NavLink>
-                        <NavLink to="/wishlist">Wishlist</NavLink>
+                        <NavLink className="btn mr-4"  to="/">Home</NavLink>
+                        <NavLink className="btn mr-4"  to="/products">Products</NavLink>
+                        <NavLink className="btn mr-4"  to="/wishlist">Wishlist</NavLink>
                     </ul>
                 </div>
                 <Link to='/' className=" text-2xl font-bold">Home Decore</Link>
