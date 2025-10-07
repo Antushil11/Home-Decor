@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import useProducts from '../Hooks/useProducts';
 import { Link } from 'react-router';
 import ProductCard from '../Components/ProductCard';
+import SkeletonLoader from '../Components/SkeletonLoader';
 
 const Products = () => {
-    const { products } = useProducts();
+    const { products,loading } = useProducts();
     const [search, setSearch] = useState("");
     const trem = search.trim().toLocaleLowerCase();
     const searchedProducts = trem ? products.filter((product) =>
@@ -26,11 +27,14 @@ const Products = () => {
                         type="search" placeholder="Search Products" />
                 </label>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4'>
+            {
+                loading ? <SkeletonLoader count={16}></SkeletonLoader> : <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4'>
                 {
                     searchedProducts.map(product => <ProductCard key={product.id} product={product}></ProductCard>)
                 }
             </div>
+            }
+            
 
 
         </div>
